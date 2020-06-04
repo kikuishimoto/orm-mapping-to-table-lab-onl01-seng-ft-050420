@@ -27,8 +27,15 @@ class Student
     DB[:conn].execute(sql)
   end 
 
+  def self.save
+    sql = <<-SQL
+      INSERT INTO students (name, grade) VALUES(?, ?)
+      SQL
 
-  # Remember, you can access your database connection anywhere in this class
-  #  with DB[:conn]
+    DB[:conn].execute(sql, self.name, self.album)
+  end 
+
+
+
 
 end
